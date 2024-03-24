@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="751ae44c-a393-4f55-afc3-4e7b865717bf" activeEnvironment="Default" name="REST Project 1" soapui-version="5.7.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="26345d8c-2e44-4421-a6fd-553ecaf984a8" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://dummy.restapiexample.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://dummy.restapiexample.com</con:endpoint></con:endpoints><con:resource name="V1" path="/api/v1" id="a784b5ae-2a73-4b4f-a681-36be6590cac0"><con:settings/><con:parameters/><con:method name="V1 1" id="2d9200c1-e537-4dfb-a3b1-4da6be7ad7ec" method="POST"><con:settings/><con:parameters/><con:request name="Request 1" id="6bc38f1c-fdc0-418b-a37a-efee4e00d86f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://dummy.restapiexample.com</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="3c3f7010-0ac0-4330-8890-cecff7884287" name="Soap Api"><con:description>TestSuite generated for REST Service [https://dummy.restapiexample.com]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="af773f06-6eee-4bac-8346-50be90c6dec6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="V1 TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [V1] located at [/api/v1]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1" id="330b3ac4-e461-4524-a75e-3c764da45435"><con:settings/><con:config service="https://dummy.restapiexample.com" resourcePath="/api/v1" methodName="V1 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" id="6bc38f1c-fdc0-418b-a37a-efee4e00d86f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://dummy.restapiexample.com</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="bfb19f23-258d-40a4-83d4-d80bc97fa5a3"><con:settings/><con:config><script>import jxl.*
+import jxl.read.biff.BiffException
+
+// Function to read data from Excel sheet
+def readDataFromExcel(String excelFilePath, String sheetName) {
+    def data = []
+    try {
+        def workbook = Workbook.getWorkbook(new File(excelFilePath))
+        def sheet = workbook.getSheet(sheetName)
+
+        for (int row = 1; row &lt; sheet.getRows(); row++) { // Assuming first row is header
+            def rowData = [:] // Using a map to store key-value pairs for each row
+            for (int col = 0; col &lt; sheet.getColumns(); col++) {
+                def cellContent = sheet.getCell(col, row).getContents()
+                rowData[sheet.getCell(col, 0).getContents()] = cellContent // Assuming header in first row
+            }
+            data.add(rowData)
+        }
+    } catch (IOException | BiffException e) {
+        log.error("Error reading Excel file: ${e.message}")
+    }
+    return data
+}
+
+// Function to trigger POST request and verify response
+def sendPostRequestAndVerifyResponse(String endpoint, Map&lt;String, String> requestData) {
+    def response = context.httpBuilder.post(endpoint) { req ->
+        headers.'Content-Type' = 'application/json'
+        body = requestData as JSON
+    }
+    def responseData = new groovy.json.JsonSlurper().parseText(response.body)
+    
+    // Assertions for positive test cases
+    assert response.status == 200: "Expected status code 200 but found ${response.status}"
+    assert responseData.status == 'success': "Expected status to be 'success' but found ${responseData.status}"
+    
+    // Assertions for negative test cases
+    assert responseData.data != null: "Response data should not be null"
+    
+}
+
+// Main function to execute the test cases
+def executeTestCases() {
+    def excelFilePath = 'C:\Users\HP\Documents\CapstoneProject/api.xls' 
+    def sheetName = 'Jsonrequest' 
+    def endpoint = 'https://dummy.restapiexample.com/api/v1'
+    
+    def testData = readDataFromExcel(excelFilePath, sheetName)
+    testData.each { dataRow ->
+        sendPostRequestAndVerifyResponse(endpoint, dataRow)
+    }
+}
+
+// Execute the test cases
+executeTestCases()
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
