@@ -1,0 +1,119 @@
+pytest python_assessment_login.py -rA
+================================================================================= test session starts =================================================================================
+platform linux -- Python 3.8.10, pytest-8.0.0, pluggy-1.4.0
+rootdir: /home/vvdn/Documents/pyTest_programs
+plugins: metadata-3.0.0, depends-1.0.1, cov-4.1.0, allure-pytest-2.13.2, soft-assertions-0.1.2, html-4.1.1, ast-transformer-1.0.3
+collected 3 items                                                                                                                                                                     
+
+python_assessment_login.py ...                                                                                                                                                  [100%]
+
+================================================================================== warnings summary ===================================================================================
+../../../../usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/remote_connection.py:24
+  /usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/remote_connection.py:24: DeprecationWarning: 'urllib3[secure]' extra is deprecated and will be removed in a future release of urllib3 2.x. Read more in this issue: https://github.com/urllib3/urllib3/issues/2680
+    import urllib3
+
+python_assessment_login.py:7
+  /home/vvdn/Documents/pyTest_programs/python_assessment_login.py:7: PytestUnknownMarkWarning: Unknown pytest.mark.all - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.all
+
+python_assessment_login.py:23
+  /home/vvdn/Documents/pyTest_programs/python_assessment_login.py:23: PytestUnknownMarkWarning: Unknown pytest.mark.all - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.all
+
+python_assessment_login.py:38
+  /home/vvdn/Documents/pyTest_programs/python_assessment_login.py:38: PytestUnknownMarkWarning: Unknown pytest.mark.all - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.all
+
+python_assessment_login.py: 29 warnings
+  /usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/remote_connection.py:376: DeprecationWarning: HTTPResponse.getheader() is deprecated and will be removed in urllib3 v2.1.0. Instead use HTTPResponse.headers.get(name, default).
+    if resp.getheader('Content-Type'):
+
+python_assessment_login.py: 29 warnings
+  /usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/remote_connection.py:377: DeprecationWarning: HTTPResponse.getheader() is deprecated and will be removed in urllib3 v2.1.0. Instead use HTTPResponse.headers.get(name, default).
+    content_type = resp.getheader('Content-Type').split(';')
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================================================================================= PASSES ========================================================================================
+___________________________________________________________________________________ test_url_title ____________________________________________________________________________________
+-------------------------------------------------------------------------------- Captured stdout call ---------------------------------------------------------------------------------
+Title of the page is Swag Labs
+________________________________________________________________________________ test_successful_login ________________________________________________________________________________
+-------------------------------------------------------------------------------- Captured stdout call ---------------------------------------------------------------------------------
+After successful login, the title of the page is Swag Labs
+_______________________________________________________________________________ test_unsuccessful_login _______________________________________________________________________________
+-------------------------------------------------------------------------------- Captured stdout call ---------------------------------------------------------------------------------
+Epic sadface: Username and password do not match any user in this service
+After successful login, the title of the page is Swag Labs
+=============================================================================== short test summary info ===============================================================================
+PASSED python_assessment_login.py::test_url_title
+PASSED python_assessment_login.py::test_successful_login
+PASSED python_assessment_login.py::test_unsuccessful_login
+=========================================================================== 3 passed, 62 warnings in 5.61s ============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+pytest -m all python_assessment_login.py -rA 
+================================================================================= test session starts =================================================================================
+platform linux -- Python 3.8.10, pytest-8.0.0, pluggy-1.4.0
+rootdir: /home/vvdn/Documents/pyTest_programs
+plugins: metadata-3.0.0, depends-1.0.1, cov-4.1.0, allure-pytest-2.13.2, soft-assertions-0.1.2, html-4.1.1, ast-transformer-1.0.3
+collected 3 items                                                                                                                                                                     
+
+python_assessment_login.py ...                                                                                                                                                  [100%]
+
+================================================================================== warnings summary ===================================================================================
+../../../../usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/remote_connection.py:24
+  /usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/remote_connection.py:24: DeprecationWarning: 'urllib3[secure]' extra is deprecated and will be removed in a future release of urllib3 2.x. Read more in this issue: https://github.com/urllib3/urllib3/issues/2680
+    import urllib3
+
+python_assessment_login.py:7
+  /home/vvdn/Documents/pyTest_programs/python_assessment_login.py:7: PytestUnknownMarkWarning: Unknown pytest.mark.all - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.all
+
+python_assessment_login.py:23
+  /home/vvdn/Documents/pyTest_programs/python_assessment_login.py:23: PytestUnknownMarkWarning: Unknown pytest.mark.all - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.all
+
+python_assessment_login.py:38
+  /home/vvdn/Documents/pyTest_programs/python_assessment_login.py:38: PytestUnknownMarkWarning: Unknown pytest.mark.all - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.all
+
+python_assessment_login.py: 29 warnings
+  /usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/remote_connection.py:376: DeprecationWarning: HTTPResponse.getheader() is deprecated and will be removed in urllib3 v2.1.0. Instead use HTTPResponse.headers.get(name, default).
+    if resp.getheader('Content-Type'):
+
+python_assessment_login.py: 29 warnings
+  /usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/remote_connection.py:377: DeprecationWarning: HTTPResponse.getheader() is deprecated and will be removed in urllib3 v2.1.0. Instead use HTTPResponse.headers.get(name, default).
+    content_type = resp.getheader('Content-Type').split(';')
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================================================================================= PASSES ========================================================================================
+___________________________________________________________________________________ test_url_title ____________________________________________________________________________________
+-------------------------------------------------------------------------------- Captured stdout call ---------------------------------------------------------------------------------
+Title of the page is Swag Labs
+________________________________________________________________________________ test_successful_login ________________________________________________________________________________
+-------------------------------------------------------------------------------- Captured stdout call ---------------------------------------------------------------------------------
+After successful login, the title of the page is Swag Labs
+_______________________________________________________________________________ test_unsuccessful_login _______________________________________________________________________________
+-------------------------------------------------------------------------------- Captured stdout call ---------------------------------------------------------------------------------
+Epic sadface: Username and password do not match any user in this service
+After successful login, the title of the page is Swag Labs
+=============================================================================== short test summary info ===============================================================================
+PASSED python_assessment_login.py::test_url_title
+PASSED python_assessment_login.py::test_successful_login
+PASSED python_assessment_login.py::test_unsuccessful_login
+=========================================================================== 3 passed, 62 warnings in 5.03s ============================================================================
+
+
+
+
